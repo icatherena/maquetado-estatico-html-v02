@@ -136,16 +136,121 @@
     </div>
     <div id="skills" class="skills">
         <h2>Soft & Hard Skills</h2>
-        <div class="container-skills">
-            <div class="container-skill">
-                <h3>HTML</h3>
-                <div class="circular-progress">
-                    <div class="value-container">
-                        0%
-                    </div>
+        <div class="contenedor-skills">
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">70</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">HTML</p>
                 </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <defs>
+                        <linearGradient id="gradientStyle">
+                            <stop offset="0%" stop-color="#1f5152"/>
+                            <stop offset="100%" stop-color="#b7b5b5"/>
+                        </linearGradient>
+                    </defs>
+                    <circle class="circle" cx="90" cy="90" r="80">
+                </svg>
             </div>
-            <script src="script.js"></script>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">55</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">CSS</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <circle class="circle" cx="90" cy="90" r="80">
+                </svg>
+            </div>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">5</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">JS</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <circle class="circle" cx="90" cy="90" r="80">
+                </svg>
+            </div>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">45</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">Angular</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <circle class="circle" cx="90" cy="90" r="80">
+                </svg>
+            </div>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">60</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">GitHub</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <circle class="circle" cx="90" cy="90" r="80">
+                </svg>
+            </div>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">60</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">Java</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <circle class="circle" cx="90" cy="90" r="80">
+                </svg>
+            </div>
+            <script>
+                const block = document.querySelectorAll('.block');
+                window.addEventListener('load', function(){
+                    block.forEach(item => {
+                        let numElement = item.querySelector('.num');
+                        let num = parseInt(numElement.innerText)
+                        // console.log(typeof num);
+                        let count = 0;
+                        let time = 2000 / num;
+                        // 2s = 2000
+                        let circle = item.querySelector('.circle');
+                        setInterval(() => {
+                            if(count == num){
+                                clearInterval();
+                            } else {
+                                count += 1;
+                                numElement.innerText = count;
+                            }
+                        }, time)
+                        circle.style.strokeDashoffset 
+                        = 505 - ( 503 * ( num / 100 ));
+                        let dots = item.querySelector('.dots');
+                        dots.style.transform = 
+                        `rotate(${360 * (num / 100)}deg)`;
+                        if(num == 100){
+                            dots.style.opacity = 0;
+                        }
+                    })
+                });
+            </script>
         </div>
     </div>
     <footer>
